@@ -5,7 +5,7 @@ export default function Topic() {
   const [reloadAPI, setReloadAPI] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/topics")
+    fetch("https://circlearn-back-end.up.railway.app/topics")
       .then((res) => res.json())
       .then((data) => {
         setTopic(data.data);
@@ -16,7 +16,7 @@ export default function Topic() {
   const addTopic = (e) => {
     e.preventDefault();
     console.log(e.target[0].value);
-    fetch("http://localhost:8080/topics/create", {
+    fetch("https://circlearn-back-end.up.railway.app/topics/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function Topic() {
 
   const deleteTopic = (topicId) => {
     console.log(topicId);
-    fetch(`http://localhost:8080/topics/${topicId}`, {
+    fetch(`https://circlearn-back-end.up.railway.app/topics/${topicId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

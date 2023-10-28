@@ -37,7 +37,7 @@ const ColumnsTable = (props) => {
 
   const deleteUser = (userId) => {
     console.log(userId);
-    fetch(`http://localhost:8080/admin/users/${userId}`, {
+    fetch(`https://circlearn-back-end.up.railway.app/admin/users/${userId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

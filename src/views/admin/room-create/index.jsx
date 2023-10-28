@@ -86,7 +86,7 @@ export default function RoomCreate() {
 
   useEffect(() => {
     // fetch topic from API
-    fetch("http://localhost:8080/topics")
+    fetch("https://circlearn-back-end.up.railway.app/topics")
       .then((res) => res.json())
       .then((data) => {
         setTopics(data.data);

@@ -41,9 +41,12 @@ const ColumnsTable = (props) => {
   console.log(page);
 
   const deleteUser = (userId) => {
-    fetch(`http://localhost:8080/admin/runding/${roomId}/${userId}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://circlearn-back-end.up.railway.app/admin/runding/${roomId}/${userId}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         setReloadAPI(!reloadAPI);

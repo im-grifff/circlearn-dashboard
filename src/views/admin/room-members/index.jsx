@@ -9,7 +9,7 @@ export default function RoomMembers() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/runding/" + id)
+    fetch("https://circlearn-back-end.up.railway.app/admin/runding/" + id)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.data);
