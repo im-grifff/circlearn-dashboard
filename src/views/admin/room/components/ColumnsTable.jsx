@@ -37,7 +37,7 @@ const ColumnsTable = (props) => {
 
   const deleteUser = (roomId) => {
     console.log(roomId);
-    fetch(`https://circlearn-back-end.up.railway.app/admin/runding/${roomId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/admin/runding/${roomId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -121,14 +121,14 @@ const ColumnsTable = (props) => {
                             className="text-sm font-semibold text-navy-800 hover:text-navy-500"
                             onClick={() => {
                               navigator.clipboard.writeText(
-                                `http://localhost:3000/ruang/${cell.row.original._id}`
+                                `${process.env.REACT_APP_MAIN_URL}/ruang/${cell.row.original._id}`
                               );
                               alert("Link copied!");
                             }}
                           >
                             Share
                           </button>
-                          <button
+                          {/* <button
                             className="text-sm font-semibold text-navy-800 hover:text-navy-500"
                             onClick={() =>
                               (window.location.href = `/admin/manage-room/${cell.row.original._id}/questions`)
@@ -143,6 +143,14 @@ const ColumnsTable = (props) => {
                             }
                           >
                             View Members
+                          </button> */}
+                          <button
+                            className="text-sm font-semibold text-navy-800 hover:text-navy-500"
+                            onClick={() =>
+                              (window.location.href = `/admin/manage-room/${cell.row.original._id}/edit`)
+                            }
+                          >
+                            Edit
                           </button>
                           <button
                             className="text-sm font-semibold text-red-500 hover:text-red-700"

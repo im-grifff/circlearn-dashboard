@@ -154,7 +154,7 @@ export default function QuestionDetails() {
           <i className="fa-solid fa-circle-notch animate-spin text-3xl text-navy-800" />
         </div>
       ) : (
-        <div className="container mx-auto mt-4 mb-10 px-2">
+        <div className="mt-4 mb-10 ">
           <div className="mt-3 flex w-full flex-col items-center justify-between gap-3 lg:flex-row lg:items-start ">
             <div className="flex flex-grow flex-col items-center justify-center lg:block lg:items-start">
               <h3 className="mb-2 text-xl font-semibold">
@@ -176,7 +176,7 @@ export default function QuestionDetails() {
                 type="button"
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `localhost:3000/question/detail/${questionId}`
+                    `${process.env.REACT_APP_MAIN_URL}/question/detail/${questionId}`
                   );
 
                   // eslint-disable-next-line no-alert

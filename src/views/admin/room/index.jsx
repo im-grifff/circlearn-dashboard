@@ -6,7 +6,7 @@ export default function Room() {
   const [reloadAPI, setReloadAPI] = useState(false);
 
   useEffect(() => {
-    fetch("https://circlearn-back-end.up.railway.app/admin/runding")
+    fetch(process.env.REACT_APP_API_URL + "/admin/runding")
       .then((res) => res.json())
       .then((data) => {
         setRooms(data.data);

@@ -26,6 +26,9 @@ import RoomMembers from "views/admin/room-members";
 import RoomCreate from "views/admin/room-create";
 import RoomQuestions from "views/admin/room-question";
 import QuestionDetails from "views/admin/room-question/QuestionDetails";
+import RoomEdit from "views/admin/room-edit";
+import EditUser from "views/admin/user-edit";
+import RoomDetails from "views/admin/room-details";
 
 const routes = [
   {
@@ -55,6 +58,13 @@ const routes = [
     path: "manage-users",
     icon: <MdPerson className="h-6 w-6" />,
     component: <Users />,
+  },
+  {
+    name: "Edit User",
+    layout: "/admin",
+    path: "manage-users/:id/edit",
+    icon: <MdPerson className="h-6 w-6" />,
+    component: <EditUser />,
   },
   // {
   //   name: "NFT Marketplace",
@@ -88,7 +98,7 @@ const routes = [
   {
     name: "Member List",
     layout: "/admin",
-    path: "manage-room/:id",
+    path: "manage-room/:id/members",
     icon: <MdGroups className="h-6 w-6" />,
     component: <RoomMembers />,
   },
@@ -98,6 +108,13 @@ const routes = [
     path: "manage-room/create",
     icon: <MdGroups className="h-6 w-6" />,
     component: <RoomCreate />,
+  },
+  {
+    name: "Edit Room",
+    layout: "/admin",
+    path: "manage-room/:id/edit",
+    icon: <MdGroups className="h-6 w-6" />,
+    component: <RoomEdit />,
   },
   {
     name: "Question List",
@@ -112,6 +129,13 @@ const routes = [
     path: "manage-room/:id/questions/:questionId",
     icon: <MdGroups className="h-6 w-6" />,
     component: <QuestionDetails />,
+  },
+  {
+    name: "Room Details",
+    layout: "/admin",
+    path: "manage-room/:id",
+    icon: <MdGroups className="h-6 w-6" />,
+    component: <RoomDetails />,
   },
 ];
 export default routes;

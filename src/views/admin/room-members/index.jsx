@@ -9,7 +9,7 @@ export default function RoomMembers() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("https://circlearn-back-end.up.railway.app/admin/runding/" + id)
+    fetch(process.env.REACT_APP_API_URL + "/admin/runding/" + id)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.data);

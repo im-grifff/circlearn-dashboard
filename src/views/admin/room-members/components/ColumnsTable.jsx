@@ -42,7 +42,7 @@ const ColumnsTable = (props) => {
 
   const deleteUser = (userId) => {
     fetch(
-      `https://circlearn-back-end.up.railway.app/admin/runding/${roomId}/${userId}`,
+      `${process.env.REACT_APP_API_URL}/admin/runding/${roomId}/${userId}`,
       {
         method: "DELETE",
       }

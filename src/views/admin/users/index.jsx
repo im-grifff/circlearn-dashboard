@@ -6,7 +6,7 @@ export default function Users() {
   const [reloadAPI, setReloadAPI] = useState(false);
 
   useEffect(() => {
-    fetch("https://circlearn-back-end.up.railway.app/admin/users")
+    fetch(process.env.REACT_APP_API_URL + "/admin/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.data);

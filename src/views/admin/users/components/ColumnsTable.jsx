@@ -1,14 +1,22 @@
 import Card from "components/card";
-import React, { useMemo } from "react";
+import api from "config/api";
+import React, { useMemo, useState } from "react";
 import {
   useGlobalFilter,
   usePagination,
   useSortBy,
   useTable,
 } from "react-table";
+import { useNavigate } from "react-router-dom";
 
 const ColumnsTable = (props) => {
   const { columnsData, tableData, setReloadAPI, reloadAPI } = props;
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirm] = useState("");
+
+  const navigate = useNavigate();
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
@@ -37,7 +45,7 @@ const ColumnsTable = (props) => {
 
   const deleteUser = (userId) => {
     console.log(userId);
-    fetch(`https://circlearn-back-end.up.railway.app/admin/users/${userId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/admin/users/${userId}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -103,12 +111,24 @@ const ColumnsTable = (props) => {
                     }
                     if (cell.column.Header === "ACTION") {
                       data = (
-                        <button
-                          className="text-sm font-semibold text-red-500 hover:text-red-700"
-                          onClick={() => deleteUser(cell.row.original._id)}
-                        >
-                          Delete
-                        </button>
+                        <div className="flex gap-3">
+                          <button
+                            className="text-sm font-semibold text-blue-500 hover:text-blue-700"
+                            onClick={() => {
+                              navigate(
+                                `/admin/manage-users/${cell.row.original._id}/edit`
+                              );
+                            }}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="text-sm font-semibold text-red-500 hover:text-red-700"
+                            onClick={() => deleteUser(cell.row.original._id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
                       );
                     }
                     return (
