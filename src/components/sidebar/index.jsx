@@ -13,7 +13,8 @@ const Sidebar = ({ open, onClose }) => {
       route.path !== "manage-room/create" &&
       route.path !== "manage-room/:id/questions/:questionId" &&
       route.path !== "manage-room/:id/edit" &&
-      route.path !== "manage-users/:id/edit"
+      route.path !== "manage-users/:id/edit" &&
+      route.path !== "manage-room/:id/members"
   );
 
   return (
