@@ -15,6 +15,18 @@ export default function Default() {
 
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    // get param query "token" from url and save to localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+
+    token && localStorage.setItem("token", token);
+
+    if (localStorage.getItem("token") === null) {
+      window.location.href = `${process.env.REACT_APP_MAIN_URL}/login`;
+    }
+  }, []);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     api
