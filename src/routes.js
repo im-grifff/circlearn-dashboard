@@ -8,6 +8,7 @@ import DataTables from "views/admin/tables";
 import Room from "views/admin/room";
 import Topic from "views/admin/topic";
 import Users from "views/admin/users";
+import RequestTopic from "views/admin/room copy";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -101,6 +102,13 @@ const routes = [
     path: "manage-room/:id/members",
     icon: <MdGroups className="h-6 w-6" />,
     component: <RoomMembers />,
+  },
+  {
+    name: "Request Topic List",
+    layout: "/admin",
+    path: "request-topic",
+    icon: <MdGroups className="h-6 w-6" />,
+    component: <RequestTopic />,
   },
   {
     name: "Create Room",
