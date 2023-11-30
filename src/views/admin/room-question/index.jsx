@@ -106,6 +106,13 @@ export default function RoomQuestions() {
     }
   };
 
+  // sort latest first
+  searchData.sort((a, b) => {
+    const dateA = new Date(a.updatedAt);
+    const dateB = new Date(b.updatedAt);
+    return dateB - dateA;
+  });
+
   return (
     <>
       <div className="p-3">
