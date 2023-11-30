@@ -43,7 +43,7 @@ export default function QuestionResponseCard(props) {
     const token = localStorage.getItem("token");
     api
       .put(
-        `/comments/${data._id}`,
+        `/admin/comments/${data._id}`,
         {
           content_form: commentForm,
         },
@@ -69,7 +69,7 @@ export default function QuestionResponseCard(props) {
     setIsSubmitting(true);
     const token = localStorage.getItem("token");
     api
-      .delete(`/comments/${data._id}`, {
+      .delete(`/admin/comments/${data._id}`, {
         headers: {
           "auth-token": token, // the token is a variable which holds the token
         },
@@ -94,7 +94,7 @@ export default function QuestionResponseCard(props) {
         <div className="flex flex-grow flex-col items-center justify-center lg:block lg:items-start">
           <h3 className="text-xl font-semibold">{data.author_username}</h3>
           <div className="flex items-center">
-            <i className="fa-solid fa-clock text-primary-1 mr-3 flex h-5 w-5 items-center justify-center text-xl" />
+            <i className="fa-solid fa-clock mr-3 flex h-5 w-5 items-center justify-center text-xl text-navy-800" />
             <span className="font-medium text-gray-500 ">{renderTime()}</span>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function QuestionResponseCard(props) {
             isSubmitting ? (
               <button
                 type="button"
-                className="bg-primary-1 shadow-primary-1 mt-3 w-40 rounded-lg py-2 text-white shadow-lg"
+                className="mt-3 w-40 rounded-lg bg-navy-800 py-2 text-white shadow-lg shadow-navy-800"
                 disabled
               >
                 <i className="fa-solid fa-circle-notch animate-spin text-white" />
@@ -135,7 +135,7 @@ export default function QuestionResponseCard(props) {
             ) : (
               <button
                 type="button"
-                className="bg-primary-1 shadow-primary-1 mt-3 w-40 rounded-lg py-2 text-white shadow-lg"
+                className="mt-3 w-40 rounded-lg bg-navy-800 py-2 text-white shadow-lg shadow-navy-800"
                 onClick={handleCommentSubmit}
               >
                 Send
