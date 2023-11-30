@@ -99,24 +99,21 @@ export default function QuestionResponseCard(props) {
           </div>
         </div>
         <div>
-          {userData._id === data.author_id[0] && (
-            <button
-              type="button"
-              className="mb-2 ml-2 mr-2 flex-grow rounded-lg bg-gray-500 px-6 py-3 font-semibold text-white shadow-lg shadow-gray-500"
-              onClick={() => setIsEdit(!isEdit)}
-            >
-              Edit Answer
-            </button>
-          )}
-          {userData._id === data.author_id[0] && (
-            <button
-              type="button"
-              className="mb-2 ml-2 mr-2 flex-grow rounded-lg bg-red-500 px-6 py-3 font-semibold text-white shadow-lg shadow-red-500"
-              onClick={handleDeleteComment}
-            >
-              Delete Answer
-            </button>
-          )}
+          <button
+            type="button"
+            className="mb-2 ml-2 mr-2 flex-grow rounded-lg bg-gray-500 px-6 py-3 font-semibold text-white shadow-lg shadow-gray-500"
+            onClick={() => setIsEdit(!isEdit)}
+          >
+            Edit Answer
+          </button>
+
+          <button
+            type="button"
+            className="mb-2 ml-2 mr-2 flex-grow rounded-lg bg-red-500 px-6 py-3 font-semibold text-white shadow-lg shadow-red-500"
+            onClick={handleDeleteComment}
+          >
+            Delete Answer
+          </button>
         </div>
       </div>
       {isEdit && (
